@@ -1,0 +1,43 @@
+# Python virtual environments & bytecode
+.venv/
+venv/
+backend/venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Node & Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Firebase cache
+.firebase/
+firebase-debug.log*
+
+# Local SQLite databases & cache
+*.db
+*.sqlite3
+backend/skillup.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+
+# Storage directories (ignore runtime uploads & generated reports, keep structure)
+backend/storage/uploads/*
+backend/storage/reports/*
+!backend/storage/uploads/.gitkeep
+!backend/storage/reports/.gitkeep
+
+# Environment secrets
+.env
+backend/.env
+frontend/.env
+frontend/.env.production
+.env.local
+.env.*.local
+!.env.example
+!backend/.env.example
+!frontend/.env.production.example

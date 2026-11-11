@@ -1,3 +1,4 @@
+import base64
 import os
 import shutil
 import uuid
@@ -96,7 +97,8 @@ async def upload_resume(
         "sections": parsed_data.get("sections", {}),
         "raw_text_preview": parsed_data.get("raw_text", "")[:4000],
         "uploaded_filename": file.filename,
-        "storage_mode": "in_memory_only",
+        "storage_mode": "mongodb_document",
+        "resume_file_base64": base64.b64encode(contents).decode("utf-8"),
         "accessible_by_interviewers": True
     }
 

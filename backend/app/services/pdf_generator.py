@@ -1,20 +1,21 @@
+import io
 import os
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
-from app.core.config import settings
 
-def generate_skill_report_pdf(report_data: Dict[str, Any], output_filename: str) -> str:
+def generate_skill_report_pdf(report_data: Dict[str, Any], output_filename: Optional[str] = None) -> bytes:
     """
-    Generate an executive SkillUp Career Intelligence PDF report using ReportLab locally.
+    Generate an executive SkillUp Career Intelligence PDF report in-memory using ReportLab.
+    Zero local disk storage: returns raw PDF bytes for streaming or direct MongoDB storage.
     """
-    output_path = settings.REPORTS_DIR / output_filename
+    buffer = io.BytesIO()
     doc = SimpleDocTemplate(
-        str(output_path),
+        buffer,
         pagesize=letter,
         rightMargin=40,
         leftMargin=40,
@@ -217,4 +218,5 @@ def generate_skill_report_pdf(report_data: Dict[str, Any], output_filename: str)
     story.append(Paragraph("SkillUp | Developed by OmeGamma — Confidential Career Intelligence Document", footer_style))
     
     doc.build(story)
-    return str(output_path)
+    buffer.seek(0)
+    return buffer.getvalue()

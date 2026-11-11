@@ -31,9 +31,7 @@ class Settings(BaseSettings):
     MONGODB_URI: str | None = os.getenv("MONGODB_URI") or os.getenv("MONGO_URI") or os.getenv("MONGODB_CONNECTION_STRING")
     MONGODB_DB_NAME: str = os.getenv("MONGODB_DB_NAME") or os.getenv("MONGO_DB_NAME", "skillup_db")
     
-    # File Storage
-    UPLOAD_DIR: Path = BASE_DIR / "storage" / "uploads"
-    REPORTS_DIR: Path = BASE_DIR / "storage" / "reports"
+    # Storage configuration: Resumes and PDF reports are stored in MongoDB / in-memory (zero local disk upload retention)
     MODELS_DIR: Path = BASE_DIR / "storage" / "models"
     DATASETS_DIR: Path = BASE_DIR / "storage" / "datasets"
     
@@ -47,8 +45,6 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
-# Ensure directories exist
-settings.UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
-settings.REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+# Ensure model and dataset directories exist
 settings.MODELS_DIR.mkdir(parents=True, exist_ok=True)
 settings.DATASETS_DIR.mkdir(parents=True, exist_ok=True)

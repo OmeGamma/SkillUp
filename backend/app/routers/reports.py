@@ -1,7 +1,8 @@
+import base64
 import os
 import uuid
 from typing import List, Optional, Dict, Any
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
@@ -91,7 +92,7 @@ def download_report_pdf(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Generate and download executive PDF report generated locally via ReportLab."""
+    """Generate and download executive PDF report generated in-memory via ReportLab with zero local disk storage."""
     report = db.query(Report).filter(Report.id == report_id).first()
     if not report:
         raise HTTPException(status_code=404, detail="Report not found.")
@@ -102,7 +103,7 @@ def download_report_pdf(
     candidate_user = db.query(User).filter(User.id == report.user_id).first()
     cand_name = (report.data.get("candidate_name") if isinstance(report.data, dict) else None) or (candidate_user.full_name if candidate_user else current_user.full_name)
     
-    filename = f"SkillUp_Report_{report.id}_{uuid.uuid4().hex[:6]}.pdf"
+    download_filename = f"SkillUp_{report.target_role_or_job.replace(' ', '_')}_Report.pdf"
     payload = {
         "title": report.title,
         "target_role_or_job": report.target_role_or_job,
@@ -112,15 +113,23 @@ def download_report_pdf(
         "data": report.data or {}
     }
     
-    pdf_path = generate_skill_report_pdf(payload, filename)
-    report.pdf_filename = filename
-    report.pdf_path = pdf_path
+    # Generate directly in-memory (bytes) with zero local file retention
+    pdf_bytes = generate_skill_report_pdf(payload)
+    
+    # Store metadata and base64 in MongoDB
+    report.pdf_filename = download_filename
+    report.pdf_path = None
+    if isinstance(report.data, dict):
+        report.data["pdf_generated"] = True
+        report.data["pdf_base64"] = base64.b64encode(pdf_bytes).decode("utf-8")
     db.commit()
     
-    return FileResponse(
-        path=pdf_path,
+    return Response(
+        content=pdf_bytes,
         media_type="application/pdf",
-        filename=f"SkillUp_{report.target_role_or_job.replace(' ', '_')}_Report.pdf"
+        headers={
+            "Content-Disposition": f'attachment; filename="{download_filename}"'
+        }
     )
 
 @router.get("/mongodb/status")

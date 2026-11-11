@@ -53,7 +53,13 @@ from app.services.mongodb_service import mongodb_service
 
 @app.on_event("startup")
 def startup_event():
-    initialize_mongodb()
+    try:
+        initialize_mongodb()
+    except Exception as e:
+        import logging
+        logging.getLogger("uvicorn.error").warning(
+            f"MongoDB initialization deferred: {e}. Backend started in resilient mode."
+        )
 
 @app.get("/")
 def root():

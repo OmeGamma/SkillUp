@@ -1,10 +1,31 @@
 const RAW_API_BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
+const PROD_DEFAULT_BACKEND = 'https://skillup-api.onrender.com/api/v1';
 
 export const getApiBase = (): string => {
+  const isBrowser = typeof window !== 'undefined';
+  const isLocalhostHost = isBrowser && (
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1' ||
+    window.location.hostname === '0.0.0.0'
+  );
+
+  // If in browser and running on production domain (e.g. skillupin.web.app)
+  if (isBrowser && !isLocalhostHost) {
+    // If an external backend URL is specified, use it
+    if (RAW_API_BASE && !RAW_API_BASE.includes('localhost') && !RAW_API_BASE.includes('127.0.0.1')) {
+      const cleaned = RAW_API_BASE.replace(/\/+$/, '');
+      return cleaned.endsWith('/api/v1') ? cleaned : `${cleaned}/api/v1`;
+    }
+    // Never attempt to call localhost in production
+    return PROD_DEFAULT_BACKEND;
+  }
+
+  // Local development mode
   if (RAW_API_BASE) {
     const cleaned = RAW_API_BASE.replace(/\/+$/, '');
     return cleaned.endsWith('/api/v1') ? cleaned : `${cleaned}/api/v1`;
   }
+
   return '/api/v1';
 };
 

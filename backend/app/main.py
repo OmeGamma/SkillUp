@@ -26,10 +26,20 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS configuration
+# CORS configuration supporting production Firebase and local development
+CORS_ORIGINS = [
+    "https://skillupin.web.app",
+    "https://skillupin.firebaseapp.com",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In development allow all; in production restrict to frontend domain
+    allow_origins=CORS_ORIGINS,
+    allow_origin_regex=r"https://(skillupin.*\.web\.app|skillupin.*\.firebaseapp\.com|localhost:\d+|127\.0\.0\.1:\d+)",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

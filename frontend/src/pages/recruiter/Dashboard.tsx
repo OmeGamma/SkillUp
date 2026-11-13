@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Briefcase, Users, Award, TrendingUp, Plus, ArrowRight,
-  CheckCircle2, Clock, Eye, Sparkles, Filter
+  Briefcase, Users, Award, TrendingUp, Plus,
+  Eye, Sparkles
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { StatCard } from '../../components/StatCard';

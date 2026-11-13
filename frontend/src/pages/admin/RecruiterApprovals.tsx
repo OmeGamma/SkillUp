@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users, CheckCircle2, XCircle, Clock, Shield, Building } from 'lucide-react';
+import { CheckCircle2, XCircle } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';
 

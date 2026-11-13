@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Target, BarChart3, CheckCircle2, AlertTriangle, ArrowRight,
-  BookOpen, Sparkles, FileText, Download, Save, RefreshCw, Info, HelpCircle
+  Target, CheckCircle2, AlertTriangle,
+  BookOpen, Sparkles, Save, RefreshCw, Info
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';

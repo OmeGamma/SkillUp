@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Union
 import fitz  # PyMuPDF
 from docx import Document
-from app.services.skill_catalog import ALIAS_MAP, SKILL_TAXONOMY, normalize_skill
+from app.services.skill_catalog import ALIAS_MAP, SKILL_TAXONOMY
 
 def extract_text_from_bytes(content: bytes, filename: str = "resume.pdf") -> str:
     """Extract plain text directly from in-memory bytes without writing to disk."""

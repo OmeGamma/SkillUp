@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Search, Briefcase, MapPin, Building, Filter, CheckCircle2,
-  Clock, ArrowRight, Zap, AlertCircle
+  Search, MapPin, CheckCircle2,
+  AlertCircle
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';

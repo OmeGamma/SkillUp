@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Cpu, Play, CheckCircle2, AlertTriangle, RefreshCw, Layers,
-  BarChart3, Award, Sparkles, Shield, Database, Check
+  Cpu, Play, CheckCircle2, AlertTriangle, RefreshCw,
+  Database
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';

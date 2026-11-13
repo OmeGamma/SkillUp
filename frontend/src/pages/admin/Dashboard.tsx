@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Shield, Cpu, Users, Briefcase, FileText, CheckCircle2,
-  AlertTriangle, ArrowRight, Sparkles, Scale, Server
+  Shield, Cpu, Users, Briefcase,
+  ArrowRight, Scale
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { StatCard } from '../../components/StatCard';
-import { Badge } from '../../components/Badge';
 
 export const AdminDashboard: React.FC = () => {
   const [stats, setStats] = useState<any | null>(null);

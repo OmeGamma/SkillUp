@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  FileText, Download, Calendar, ArrowRight, Award, CheckCircle2,
-  TrendingUp, BarChart3, Columns, Sparkles
+  Download, Calendar,
+  Columns
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';

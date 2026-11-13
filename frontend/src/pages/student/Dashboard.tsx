@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FileText, Briefcase, Award, TrendingUp, CheckCircle2,
-  Clock, ArrowRight, Zap, Target, Sparkles, BookOpen, ChevronRight
+  FileText, Briefcase, Award, TrendingUp,
+  ArrowRight, Target, Sparkles, BookOpen
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { api } from '../../services/api';

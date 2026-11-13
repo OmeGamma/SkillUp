@@ -1,10 +1,7 @@
 import base64
-import os
-import shutil
-import uuid
 from pathlib import Path
-from typing import Dict, Any, List
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status
+from typing import Dict, Any
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 
 from app.core.config import settings

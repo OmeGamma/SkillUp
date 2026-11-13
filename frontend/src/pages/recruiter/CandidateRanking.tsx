@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
-  Users, Filter, ArrowUpDown, CheckCircle2, AlertTriangle, Eye,
-  Sparkles, Columns, MessageSquare, Shield, Clock, Award, FileText
+  Sparkles, Columns, MessageSquare, Shield, FileText
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';

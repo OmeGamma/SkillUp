@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Sparkles, LogOut, User as UserIcon, Menu, X, ChevronDown, Shield, Briefcase, Award } from 'lucide-react';
+import { Sparkles, LogOut, User as UserIcon, Menu, X, ChevronDown } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { ThemeToggle } from './ThemeToggle';
 import { NotificationBell } from './NotificationBell';

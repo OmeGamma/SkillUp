@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Sparkles, Shield, Cpu, FileText, CheckCircle2, ArrowRight,
-  TrendingUp, Users, Search, BarChart3, Lock, Zap, Briefcase, Award,
-  Terminal, PieChart
+  Cpu, FileText, CheckCircle2, ArrowRight,
+  BarChart3, Zap
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
 import { Badge } from '../components/Badge';
 
 export const LandingPage: React.FC = () => {
-  const { isAuthenticated, user, login } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [activeJobs, setActiveJobs] = useState<any[]>([]);
   const [activeModel, setActiveModel] = useState<any>(null);

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Upload, FileText, CheckCircle2, AlertCircle, ArrowRight,
-  Sparkles, Shield, Trash2, Edit3, Plus, RefreshCw, Eye
+  Upload, CheckCircle2, AlertCircle,
+  Sparkles, Shield, Trash2, Plus, RefreshCw
 } from 'lucide-react';
 import { api } from '../../services/api';
-import { Badge } from '../../components/Badge';
 
 export const ResumeAnalyzerPage: React.FC = () => {
   const navigate = useNavigate();

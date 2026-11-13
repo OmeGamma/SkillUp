@@ -1,9 +1,7 @@
-import math
-from typing import Dict, List, Any, Optional
-import numpy as np
+from typing import Dict, Any, Optional
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from app.services.skill_catalog import normalize_skill, normalize_skill_list, SKILL_TAXONOMY, PREDEFINED_ROLES
+from app.services.skill_catalog import normalize_skill, normalize_skill_list, SKILL_TAXONOMY
 
 def compute_tfidf_similarity(candidate_text: str, job_text: str) -> float:
     """Compute cosine similarity between candidate resume/profile text and job description."""

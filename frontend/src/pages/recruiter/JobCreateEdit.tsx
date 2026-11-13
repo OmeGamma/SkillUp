@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Save, Briefcase, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { api } from '../../services/api';
 
 export const JobCreateEditPage: React.FC = () => {

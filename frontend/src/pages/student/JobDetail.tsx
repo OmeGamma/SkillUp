@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import {
-  ArrowLeft, MapPin, Building, Briefcase, Calendar, CheckCircle2,
-  AlertCircle, Shield, Award, Sparkles
+  ArrowLeft, MapPin, CheckCircle2,
+  AlertCircle
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';
 
 export const JobDetailPage: React.FC = () => {
   const { jobId } = useParams<{ jobId: string }>();
-  const navigate = useNavigate();
   const [job, setJob] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [actionMsg, setActionMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);

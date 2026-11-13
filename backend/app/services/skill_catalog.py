@@ -1,5 +1,5 @@
 import re
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List
 
 # Comprehensive taxonomy of skills mapped to their canonical names
 SKILL_TAXONOMY: Dict[str, Dict] = {

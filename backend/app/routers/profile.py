@@ -1,12 +1,11 @@
-from typing import Optional, Dict, Any
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.models.user import User
 from app.models.profile import StudentProfile, RecruiterProfile
 from app.schemas.profile import StudentProfileUpdate, RecruiterProfileUpdate
-from app.routers.auth import get_current_user, require_role
+from app.routers.auth import get_current_user
 
 router = APIRouter(prefix="/profile", tags=["Profiles"])
 

@@ -2,7 +2,7 @@ import os
 import time
 import joblib
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Dict, List, Any, Optional
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
@@ -13,7 +13,6 @@ from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     roc_auc_score, average_precision_score, confusion_matrix
 )
-from sklearn.calibration import CalibratedClassifierCV
 import shap
 
 from app.core.config import settings

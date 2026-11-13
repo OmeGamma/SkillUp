@@ -1,12 +1,8 @@
 import base64
-import os
-import uuid
-from typing import List, Optional, Dict, Any
-from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
-from fastapi.responses import FileResponse
+from typing import List, Optional
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
 from sqlalchemy.orm import Session
 
-from app.core.config import settings
 from app.core.database import get_db
 from app.models.user import User
 from app.models.report import Report

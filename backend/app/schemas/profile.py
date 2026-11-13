@@ -1,5 +1,5 @@
 from typing import List, Dict, Any, Optional
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel
 
 class EducationItem(BaseModel):
     institution: str

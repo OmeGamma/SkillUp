@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { ArrowLeft, Columns, CheckCircle2, Award, TrendingUp, Users } from 'lucide-react';
+import { ArrowLeft, Columns } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';
 

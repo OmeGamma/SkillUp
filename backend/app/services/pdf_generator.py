@@ -1,6 +1,4 @@
 import io
-import os
-from pathlib import Path
 from typing import Dict, Any, Optional
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter

@@ -1,4 +1,3 @@
-from datetime import datetime, timezone
 from typing import Optional, List
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordBearer
@@ -8,7 +7,7 @@ from app.core.database import get_db
 from app.core.security import verify_password, get_password_hash, create_access_token, decode_access_token
 from app.models.user import User
 from app.models.profile import StudentProfile, RecruiterProfile
-from app.schemas.auth import UserRegister, UserLogin, TokenResponse, UserResponse
+from app.schemas.auth import UserRegister, UserLogin, TokenResponse
 from app.services.mongodb_service import mongodb_service
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])

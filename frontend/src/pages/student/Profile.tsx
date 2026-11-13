@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  User, Mail, Phone, MapPin, Target, Eye, EyeOff, Plus, Trash2,
-  CheckCircle2, AlertCircle, Save, Award, Briefcase, GraduationCap,
-  Globe, Sparkles, FileText
+  Eye, EyeOff, Plus, Trash2,
+  CheckCircle2, AlertCircle, Save,
+  Globe, FileText
 } from 'lucide-react';
 import { api } from '../../services/api';
 import { Badge } from '../../components/Badge';
